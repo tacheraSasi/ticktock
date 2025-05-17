@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'dart:io';
+import 'utils/utlis.dart';
 const runCmd  = "dart run ticktock.dart";
 const sessionFile = 'ticktock.json';
 
@@ -25,3 +27,22 @@ void main(List<String> arguments) async {
       print("❌ Unknown command: $command");
   }
 }
+
+Future startSession()async{
+  final file = File(sessionFile);
+  if(await file.exists()){
+    final data = jsonDecode(await file.readAsStringSync());
+    if(and(data['start'] != null, data['end'] == null)){
+      print("⚠️ Session already started at: ${data['start']}");
+      return;
+    }
+  }
+}
+
+Future stopSession()async{
+
+}
+Future showStatus()async{
+
+}
+
