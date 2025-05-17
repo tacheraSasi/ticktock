@@ -44,6 +44,11 @@ Future<void> startSession()async{
 }
 
 Future<void> stopSession()async{
+  final file = File(sessionFile);
+  if (!await file.exists()) {
+    print("❌ No session found. Start one first.");
+    return;
+  }
 
 }
 Future<void> showStatus()async{
