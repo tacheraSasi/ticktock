@@ -28,7 +28,7 @@ void main(List<String> arguments) async {
   }
 }
 
-Future startSession()async{
+Future<void> startSession()async{
   final file = File(sessionFile);
   if(await file.exists()){
     final data = jsonDecode(await file.readAsStringSync());
@@ -39,10 +39,10 @@ Future startSession()async{
   }
 }
 
-Future stopSession()async{
+Future<void> stopSession()async{
 
 }
-Future showStatus()async{
+Future<void> showStatus()async{
 
 }
 
