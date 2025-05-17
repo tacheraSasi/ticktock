@@ -37,6 +37,10 @@ Future<void> startSession()async{
       return;
     }
   }
+
+  final startTime = DateTime.now().toIso8601String();
+  await file.writeAsString(jsonEncode({'start':startTime,'end':null}));
+  print("✅ Session started at $startTime");
 }
 
 Future<void> stopSession()async{
